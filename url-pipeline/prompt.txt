@@ -1,0 +1,1 @@
+Generate a list of 200 tech companies offering computer science internships. Format as CSV with columns: CompanyName, CareerPortalURL, Domain. Domains must be in 'example.com' format (no http/https). Ensure URLs point directly to internship/career pages.
