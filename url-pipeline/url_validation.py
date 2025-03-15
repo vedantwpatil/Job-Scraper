@@ -2,6 +2,7 @@
 import csv
 from urllib.parse import urlparse
 
+file_path = "./url-pipeline/urls-to-scrape.csv"
 with open("companies.csv") as f:
     reader = csv.DictReader(f)
     for row in reader:
