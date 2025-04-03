@@ -2,8 +2,8 @@ import os
 import csv
 import scrapy
 import re
-from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
+from scrapy.spiders.crawl import CrawlSpider, Rule
 from urllib.parse import urlparse
 
 
@@ -83,7 +83,7 @@ class InternshipSpider(CrawlSpider):
     rules = (
         # Follow links that look like job listings
         Rule(
-            LinkExtractor(
+            LxmlLinkExtractor(
                 allow=(
                     "job",
                     "career",
@@ -98,7 +98,7 @@ class InternshipSpider(CrawlSpider):
             follow=True,
         ),
         # Also follow general links on career pages, but don't process them
-        Rule(LinkExtractor(), follow=True),
+        Rule(LxmlLinkExtractor(), follow=True),
     )
 
     def parse_item(self, response):
